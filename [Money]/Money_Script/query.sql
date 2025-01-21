@@ -1,5 +1,0 @@
-CREATE TABLE `money` (
-    `license` VARCHAR(200) NOT NULL DEFAULT '0',
-    `cash` INT(200) NULL DEFAULT NULL,
-    `bank` INT(200) NULL DEFAULT NULL
-);
