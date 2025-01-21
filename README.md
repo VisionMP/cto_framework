@@ -5,5 +5,5 @@ Drag cto_framework to your resources folder and write start cto_framework in you
 These resouces will allow you to withdraw, deposit or transfer money to other players. You can use atms, banks, or chat commands.
 
 # Features
-Drop and Drop Scripts
+Drag and Drop Scripts
 
