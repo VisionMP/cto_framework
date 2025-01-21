@@ -1,4 +1,4 @@
-## fiveM
+## For us with FiveM FXServer
 # How to install:
 Drag cto_framework to your resources folder and write start cto_framework in your server cfg.
 
