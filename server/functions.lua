@@ -18,24 +18,23 @@ xPlayer.GetPlayerIdentifierFromType = function(type, source)
     return nil
 end
 
-
 xPlayer.Currency.Update = function(player)
     local player = tonumber(player)
     local license = xPlayer.GetPlayerIdentifierFromType("license", player)
     
-    exports.oxmysql:query("SELECT cash, bank FROM player_data WHERE license = ?", {license}, function(result)
+    exports.oxmysql:query("SELECT cash, bank , xp , rank FROM player_data WHERE license = ?", {license}, function(result)
            
         if result then
             local cash = result[1].cash
             local bank = result[1].bank
-            --local xp = result[1].xp
-            --local rank = result[1].rank
+            local xp = result[1].xp
+            local rank = result[1].rank
             xPlayer.Data[player].cash = cash
             xPlayer.Data[player].bank = bank
-            --xPlayer.Data[player].xp = xp
-            --xPlayer.Data[player].rank = rank
+            xPlayer.Data[player].xp = xp
+            xPlayer.Data[player].rank = rank
             Citizen.Wait(500)
-            TriggerClientEvent('UpdateMoney', player, cash, bank)   
+            TriggerClientEvent('UpdateMoney', player, cash, bank, rank, xp)   
         end
     end)
 end

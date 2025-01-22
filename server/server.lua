@@ -1,32 +1,11 @@
---AddEventHandler("playerConnecting", OnPlayerConnecting)
-function OnPlayerConnecting(name, setKickReason, deferrals)
-    local player = source   
-    local license = xPlayer.GetPlayerIdentifierFromType("license", player)
-    deferrals.defer()      
-    -- mandatory wait!    
-    --deferrals.update(string.format("Hello %s. Fetching Database.", name))
-    --Wait(5000)   
-    
-        deferrals.update(string.format("%s: Cash $" .. cash .. " Bank $ ".. bank, name))
-        xPlayer.Functions.DiscordSendMsg(name,"Cash: "..xPlayer.Data[player].cash)
-        Wait(10000)  
-        deferrals.done()      
-end
-
-AddEventHandler('playerActivated', function()
-    xPlayer.Functions.DiscordSendMsg('SYSTEM', GetPlayerName(source) .. ' joined.')
-  end)
-  
-  AddEventHandler('playerDropped', function(reason)
-    xPlayer.Functions.DiscordSendMsg('SYSTEM', GetPlayerName(source) .. ' left (' .. reason .. ')')
-  end)
-
 RegisterNetEvent('GetMoney')
 AddEventHandler('GetMoney', function()
     local player = source
     local license = xPlayer.GetPlayerIdentifierFromType("license", player)
     local cash = nil
     local bank = nil
+    local rank = nil
+    local xp = nil
    
     exports.oxmysql:query("SELECT cash, bank FROM player_data WHERE license = ?", {license}, function(result)
         if result then
@@ -36,10 +15,12 @@ AddEventHandler('GetMoney', function()
                 
                 local cash = result[1].cash
                 local bank = result[1].bank  
+                local rank = result[1].rank                
+                local xp = result[1].xp
             end           
-            xPlayer.Data[player] = {["cash"] = cash, ["bank"] = bank}
+            xPlayer.Data[player] = {["cash"] = cash, ["bank"] = bank, ["rank"] = rank, ["xp"] = xp}
             xPlayer.Currency.Update(player)
-            TriggerClientEvent('UpdateMoney', source, cash, bank)
+            TriggerClientEvent('UpdateMoney', source, cash, bank, rank, xp)
         end
     end)
 end)
