@@ -24,7 +24,3 @@ AddEventHandler('GetMoney', function()
         end
     end)
 end)
-
-
-
-

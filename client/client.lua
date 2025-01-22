@@ -44,7 +44,7 @@ Citizen.CreateThread(function()
        text("RANK", 0.885, 0.115, 0.35)               
        text("~g~$~w~ ".. cash, 0.91, 0.03, 0.50)
        text("~b~$~w~ ".. bank, 0.91, 0.07, 0.50)
-       text("~y~".. rank, 0.91, 0.109, 0.50)      
+       text(" ~y~".. rank, 0.91, 0.109, 0.50)      
        if IsPauseMenuActive() then
            BeginScaleformMovieMethodOnFrontendHeader("SET_HEADING_DETAILS")
            ScaleformMovieMethodAddParamPlayerNameString(GetPlayerName(PlayerId()))
