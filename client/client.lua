@@ -39,9 +39,9 @@ end
 Citizen.CreateThread(function()
    while true do
        Citizen.Wait(0)
-       text("CASH", 0.885, 0.03, 0.30)
-       text("BANK", 0.885, 0.07, 0.30)        
-       text("RANK", 0.885, 0.108, 0.30)               
+       text("CASH", 0.885, 0.035, 0.35)
+       text("BANK", 0.885, 0.075, 0.35)        
+       text("RANK", 0.885, 0.115, 0.35)               
        text("~g~$~w~ ".. cash, 0.91, 0.03, 0.50)
        text("~b~$~w~ ".. bank, 0.91, 0.07, 0.50)
        text("~y~".. rank, 0.91, 0.109, 0.50)      
