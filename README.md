@@ -1,6 +1,8 @@
 # cto_framework
 Light framework for FiveM
 
+
+SERVER SIDE FUNCTIONS
 - CTO Object — Main framework container holding: CTO.Data, CTO.Currency, CTO.Functions, CTO.Job, CTO.Items.
 - local CTO = exports[cto_framework]:getDataObject() — Returns the full CTO object.
 - CTO.GetPlayerIdentifierFromType(type, source) — Loops all identifiers for a player and returns the first one matching the given type (e.g., "steam").
